@@ -16,6 +16,10 @@ You'll be presented with a term. Your task is simple:
 
 The game can be run via CLI or through a web interface depending on the implementation.
 
+## 🚀 Setup
+
+Run `./setup.sh` to install dependencies and build the project.
+
 ---
 
 ## 📄 License
