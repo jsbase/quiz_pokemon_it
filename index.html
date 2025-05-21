@@ -42,6 +42,14 @@
         display: inline-block;
         background: linear-gradient(135deg, #ff0067, #fe89f6);
       }
+      .tech-img {
+        border: 5px solid #fff;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        display: inline-block;
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+      }
       h1,
       h2,
       h3 {
@@ -75,6 +83,7 @@
         </section>
         <section data-transition="zoom" class="slide-content">
           <h3>Axios – HTTP leicht gemacht</h3>
+          <img data-type="tech" data-term="axios" class="tech-img" alt="Axios Logo" />
           <p>Eine JavaScript-Library, die einfache HTTP-Anfragen ermöglicht.</p>
         </section>
 
@@ -84,6 +93,7 @@
         </section>
         <section data-transition="zoom" class="slide-content">
           <h3>Celebi – Zeitreisender Waldhüter</h3>
+          <img data-type="pokemon" data-term="Celebi" class="pokemon-img" alt="Celebi" />
           <p>Legendäres Pokémon, beschützt Wälder und reist durch die Zeit.</p>
         </section>
 
@@ -93,6 +103,7 @@
         </section>
         <section data-transition="zoom" class="slide-content">
           <h3>Tailwind – CSS in Höchstgeschwindigkeit</h3>
+          <img data-type="tech" data-term="tailwind" class="tech-img" alt="Tailwind Logo" />
           <p>Framework für schnelles Erstellen von responsiven Websites.</p>
         </section>
 
@@ -102,6 +113,7 @@
         </section>
         <section data-transition="zoom" class="slide-content">
           <h3>Milotic – Eleganz im Wasser</h3>
+          <img data-type="pokemon" data-term="Milotic" class="pokemon-img" alt="Milotic" />
           <p>Ein wunderschönes Pokémon mit heilenden Kräften.</p>
         </section>
 
@@ -111,6 +123,7 @@
         </section>
         <section data-transition="zoom" class="slide-content">
           <h3>Gunicorn – Django stabil serviert</h3>
+          <img data-type="tech" data-term="gunicorn" class="tech-img" alt="Gunicorn Logo" />
           <p>Webserver für das Deployment von Python-Anwendungen.</p>
         </section>
 
@@ -120,6 +133,7 @@
         </section>
         <section data-transition="zoom" class="slide-content">
           <h3>Umbreon – Nächtlicher Schatten</h3>
+          <img data-type="pokemon" data-term="Umbreon" class="pokemon-img" alt="Umbreon" />
           <p>Ein Pokémon, das im Mondschein seine Stärke entfaltet.</p>
         </section>
 
@@ -129,6 +143,7 @@
         </section>
         <section data-transition="zoom" class="slide-content">
           <h3>Prettier – Einheitliche Codestruktur</h3>
+          <img data-type="tech" data-term="prettier" class="tech-img" alt="Prettier Logo" />
           <p>Automatische Codeformatierung für JavaScript-Projekte.</p>
         </section>
 
@@ -138,6 +153,7 @@
         </section>
         <section data-transition="zoom" class="slide-content">
           <h3>Suicune – Legendäre Reinheit</h3>
+          <img data-type="pokemon" data-term="Suicune" class="pokemon-img" alt="Suicune" />
           <p>Ein Pokémon, das Gewässer reinigt und mystische Kräfte besitzt.</p>
         </section>
       </div>
@@ -149,6 +165,25 @@
         progress: true,
         slideNumber: true,
         transition: 'slide',
+      });
+
+      const techLogos = {
+        axios: 'https://axios-http.com/assets/logo.svg',
+        tailwind: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg',
+        gunicorn: 'https://raw.githubusercontent.com/benoitc/gunicorn/master/docs/_static/gunicorn-logo.png',
+        prettier: 'https://raw.githubusercontent.com/prettier/logo/master/images/prettier-logo-dark.svg',
+      };
+
+      document.querySelectorAll('img[data-type="pokemon"]').forEach((img) => {
+        const name = img.dataset.term.toLowerCase().replace(/[^a-z0-9]/g, '');
+        img.src = `https://img.pokemondb.net/artwork/large/${name}.jpg`;
+      });
+
+      document.querySelectorAll('img[data-type="tech"]').forEach((img) => {
+        const term = img.dataset.term.toLowerCase();
+        if (techLogos[term]) {
+          img.src = techLogos[term];
+        }
       });
     </script>
   </body>
